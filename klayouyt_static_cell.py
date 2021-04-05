@@ -47,7 +47,7 @@ class euler_bend_90:
 
 	def generate_shape(self):
 
-		UNIT = self.layout.create_cell(str(self.cell_name))
+		self.UNIT = self.layout.create_cell(str(self.cell_name))
 
 		self.layer = self.layout.layer(self.layer, 0) # Metal
 
@@ -58,16 +58,17 @@ class euler_bend_90:
 
 			pts.append(pya.Point.from_dpoint(pya.DPoint(euler_pts[i][0]* self.dbu ,euler_pts[i][1]* self.dbu)))
 
-		leg3 = UNIT.shapes(self.layer).insert(pya.Path(pts,self.width*self.dbu))
+		self.UNIT.shapes(self.layer).insert(pya.Path(pts,self.width*self.dbu))
 
 	def generate_gds(self, name):
 
-		self.layout.write(str(name)+ '.gds')
+		self.UNIT.write(str(name)+ '.gds')
 
 
 
 euler = euler_bend_90()
-euler.set_radius(10)
+euler.set_radius(20)
+euler.set_layer(2)
 euler.generate_shape()
 euler.generate_gds('euler10')
 
