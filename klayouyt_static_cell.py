@@ -43,7 +43,7 @@ class euler_bend_90:
 			self.layer = layer
 
 	def set_cell_name(self, cell_name):
-			self.cell_name = str(cell_name)
+			self.cell_name = str(cell_name)+ '_radius_'+ str(self.radius)
 
 	def generate_shape(self):
 
@@ -62,12 +62,12 @@ class euler_bend_90:
 
 	def generate_gds(self, name):
 
-		self.UNIT.write(str(name)+ '.gds')
+		self.UNIT.write(str(name)+ '_radius_'+ str(self.radius)+ '.gds')
 
 
 
 euler = euler_bend_90()
-euler.set_radius(20)
+euler.set_radius(10)
 euler.set_layer(2)
 euler.generate_shape()
 euler.generate_gds('euler10')
