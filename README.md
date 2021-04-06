@@ -1,3 +1,3 @@
-# Photonic circuits layout with Klayout
+Photonic circuits layout with Klayout
 
 --> 
